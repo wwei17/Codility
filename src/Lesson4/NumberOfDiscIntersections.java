@@ -9,12 +9,12 @@ public class NumberOfDiscIntersections {
         int n = A.length;
         if(n<2) return 0;
         
-        int[] B = new int[n];
-        int[] C = new int[n];
+        long[] B = new long[n];
+        long[] C = new long[n];
 
         for(int i = 0; i < n; i++){
-            B[i] = i - A[i];
-            C[i] = i + A[i];
+            B[i] = (long)i - A[i];
+            C[i] = (long)i + A[i];
         }
         Arrays.sort(B);
         Arrays.sort(C);
@@ -23,8 +23,8 @@ public class NumberOfDiscIntersections {
         for(int i = 0; i < n; i++){
             while(j < n && C[i] >= B[j]){
                 j++;
-                count += j-i;
             }
+            count += j-i;
         }
         count -= n;
         
